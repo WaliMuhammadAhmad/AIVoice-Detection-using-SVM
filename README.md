@@ -20,8 +20,7 @@ All the audios are .wav file format, have 44100 Hz sample rate and mono channel.
   There are 30 Text-to-Speech fake audios recorded by different male voices reading an English passage. The passage is also provided in the repository.
   All the male voices are recorded with different accents of English. All the audio has a length of 29-30 seconds (14.90 minutes in total)
 - Test Dataset
-  The test data set has 5 real and 5 fake audio files. The fake voices in the test dataset are Generated from a different method than the fake audios used in the Training Dataset.
-  All the audio has a variable length ranging from 19-30 seconds.
+  The test data set has 5 real and 5 fake audio files. The fake voices in the test dataset are Generated from a different method than the fake audios used in the Training Dataset. All the audios have a length ranging from 19-30 seconds.
   
 *The dataset used to train and test this model is provided inside the repository, a fake folder for fake audios and a real folder for real audios.*
 
