@@ -1,0 +1,18 @@
+{
+    "name": "Audio Classification",
+    "image": "tensorflow/tensorflow:latest",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    ],
+    "customizations": {
+        // extra
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    },
+    "workspaceFolder": "/workspace", // open in /workspace
+    "shutdownAction": "stopContainer"
+}
