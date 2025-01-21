@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Classification</title>
+    <meta name="description"
+        content="An AI-powered tool for classifying audio files. Developed by Wali Muhammad Ahmad. Open-source and free to use.">
+    <meta name="keywords"
+        content="Audio Classification, AI Audio Classification, Audio Analysis, Machine Learning, Open Source, Wali Muhammad Ahmad">
+    <meta name="author" content="Wali Muhammad Ahmad">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Audio Classification - AI-Powered Audio Analysis Tool">
+    <meta property="og:description"
+        content="An AI-powered tool for classifying audio files. Developed by Wali Muhammad Ahmad. Open-source and free to use.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <nav aria-label="Main navigation">
+            <h1>Audio Classification</h1>
+            <button class="btn" aria-label="Quit application" onclick="window.close()">Quit</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Project Info Section -->
+        <section id="project-info" aria-labelledby="project-info-heading">
+            <div class="inline">
+                <p>Developed by:</p>
+                <h2 id="project-info-heading">Wali M. Ahmad</h2>
+            </div>
+        </section>
+
+        <!-- Input Block -->
+        <div class="container">
+            <section id="upload" onclick="document.getElementById('file-input').click()" ondrop="handleDrop(event)"
+                ondragover="handleDragOver(event)">
+                <p id="audio">Drag & Drop audio file here or click to upload</p>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <input type="file" id="file-input" name="file" accept=".wav" onchange="handleFile(this.files)">
+                </form>
+            </section>
+            <button class="btn" onclick="uploadFile()">Proceed</button>
+        </div>
+
+        <br>
+
+        <!-- Output Block -->
+        <div class="container">
+            <section id="result" aria-labelledby="output-block-heading">
+                <h2 id="output-block-heading">Output</h2>
+                {% if result %}
+                <p>{{ result }}</p>
+                {% else %}
+                <p>Please upload a .wav file to analyze.</p>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='upload.js') }}"></script>
+</body>
+
+</html>

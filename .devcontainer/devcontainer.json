@@ -1,0 +1,17 @@
+{
+    "image": "python:3.12-alpine",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "dbaeumer.vscode-eslint",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    "forwardPorts": [
+        8080
+    ],
+    "postCreateCommand": "./run.sh"
+}

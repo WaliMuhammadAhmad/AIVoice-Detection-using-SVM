@@ -33,7 +33,6 @@ def create_dataset(directory, label):
     print("Filenames in", directory, ":", [os.path.basename(path) for path in audio_files])
     return X, y
 
-
 def train_model(X, y):
     unique_classes = np.unique(y)
     print("Unique classes in y_train:", unique_classes)
@@ -81,21 +80,18 @@ def train_model(X, y):
         svm_classifier = SVC(kernel='linear', random_state=42)
         svm_classifier.fit(X_train_scaled, y_train)
 
-    # Save the trained SVM model and scaler
-    model_filename = "svm_model.pkl"
+    model_filename = "model.pkl"
     scaler_filename = "scaler.pkl"
     joblib.dump(svm_classifier, model_filename)
     joblib.dump(scaler, scaler_filename)
 
-
 def main():
-    real_dir = r"path\to\AIVoice-Detection-using-SVM\real"
-    fake_dir = r"path\to\AIVoice-Detection-using-SVM\fake"
+    real_dir = "dataset/real"
+    fake_dir = "dataset/fake"
 
     X_real, y_real = create_dataset(real_dir, label=0)
     X_fake, y_fake = create_dataset(fake_dir, label=1)
 
-    # Check if each class has at least two samples
     if len(X_real) < 2 or len(X_fake) < 2:
         print("Each class should have at least two samples for stratified splitting.")
         print("Combining both classes into one for training.")
