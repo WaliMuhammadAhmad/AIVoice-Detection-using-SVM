@@ -1,18 +1,20 @@
-# AI Voice Detection using SVM
+# AI Voice Detection
 
-Welcome to the AI Voice Detection using the SVM repository! This project presents an SVM model trained to distinguish between real human voices and AI-generated voices.
+This project presents an SVM model trained to distinguish between real human and AI-generated voices.
 
 ## About the Project
 
-The AI Voice Detection project leverages Support Vector Machines (SVM) to classify audio samples as real human voices or AI-generated voices.
-With the increasing presence of AI-generated content, this model aims to provide a tool for distinguishing between authentic and synthesized speech.
-The model can detect any type of AI-generated audio like Google Assistant Voice, Alexa Voice and any other AI-generated Text-to-Speech Voice.
+The AI Voice Detection project uses Support Vector Machines (SVM) algo to classify audio samples as real human or AI-generated voices.
+The trained model file can detect any type of AI-generated audio, such as Google Assistant Voice, Alexa Voice, and any other AI-generated Text-to-Speech Voice. 
 This is a binary classification problem so the model takes real and fake audio as the training dataset. After training you can use predict.py to predict the voice.
+The model's performance can be increased by adding and diverse dataset. 
+
+*Note: *tensorflow implementation is also provided in the [folder](tensorflow/). The results might not be good bcz it is still under work!**
 
 ## Dataset
 
-The dataset used for training and evaluation comprises 70 audio samples, with 35 samples each for real human voices and AI-generated voices.
-All the audios are .wav file format, have 44100 Hz sample rate and mono channel. More details are listed below:
+The dataset used for training and evaluation comprises 70 audio samples, with 35 samples each for real human and AI-generated voices.
+All the audios are `.wav` file format, have *44100 Hz* sample rate and mono channel. More details are listed below:
 
 - Real Audio Dataset
   There are 30 real audios recorded by 4 male voices reading 4 English passages. All the audio has a length of 30 seconds (15 minutes in total)
@@ -22,7 +24,7 @@ All the audios are .wav file format, have 44100 Hz sample rate and mono channel.
 - Test Dataset
   The test data set has 5 real and 5 fake audio files. The fake voices in the test dataset are Generated from a different method than the fake audios used in the Training Dataset. All the audios have a length ranging from 19-30 seconds.
   
-*The dataset used to train and test this model is provided inside the repository, a fake folder for fake audios and a real folder for real audios.*
+*The dataset used to train and test this model is provided inside the repository.*
 
 ## Getting Started
 
@@ -30,20 +32,20 @@ To train and test the AI Voice Detection model on your local machine, follow the
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/WaliMuhammadAhmad/AIVoice-Detection-using-SVM.git
-   ```
-
-2. **Navigate to the Directory:**
-   ```sh
-   cd AIVoice-Detection-using-SVM
+   git clone https://github.com/WaliMuhammadAhmad/AIVoice-Detection.git
    ```
 
 3. **Install Dependencies:**
-   Install the required Python libraries by running:
+   Install the required libraries in `requirements.txt`:
    ```sh
    pip install -r requirements.txt
    ```
-
+**Docker config is also provided so If you are comfortable with docker then use them**
+```sh
+docker compose up
+```
+*Note: make sure you have docker installed and running!*
+*dev container config is also provided so you can open vs code inside vs container using vs code Extensions (suggested)*
 4. **Train the Model:**
    Run the training script to train the SVM model:
    ```sh
@@ -55,7 +57,7 @@ To train and test the AI Voice Detection model on your local machine, follow the
    ```sh
    python predict.py
    ```
-   predict.py will ask to enter the path of the **.wav file. Enter the file path for prediction.
+   predict.py will ask to enter the path of the *.wav file. Enter the file path for prediction.
 
 
 ## Acknowledgements
